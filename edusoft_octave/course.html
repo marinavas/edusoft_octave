@@ -1,0 +1,61 @@
+<!--ovo ce mozda biti neka startna strana-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Prva strana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="course.js"></script>
+    <link rel="stylesheet" href="course.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+ 
+  <div class="header">
+    <div class = "float-left"> <button class="openbtn" id = "openbar" onclick="openNav()"><i class="fa fa-bars fa-solid"> Отвори садржај</i></button></div>
+    
+  </div>
+
+  <div id="sidebar" class="sidebar d-none">
+    
+    
+    <ul>
+      <li><button class="closebtn d-none"  id="closebar" onclick="closeNav()"><i class="fa fa-bars fa-solid"> Затвори садржај</i></button></li>
+      <li><a href="./intro.html">Увод</a></li>
+      <li><a href="./vectors.html">Вектори и матрице</a></li>
+      <li><a href="./equations.html">Решавање једначина</a></li>
+      <li><a href="./approximations.html">Апроксимације и интерполација</a></li>
+      <li><a href="./differential.html">Диференцијални рачун</a></li>
+      <li><a href="./fourier.html">Фуријеова трансформација</a></li>
+      <li><a href="./statistics.html">Проблеми статистике</a></li>
+    </ul>
+  </div>
+  
+
+  <div id = "main">
+    
+    <h2>Uvod u uvod pre uvoda</h2>
+    <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
+    <p>Notice that this div element has a left margin of 25%. This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
+    <p>Also notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+  </div>
+
+  <div class = "logo">
+  <img src="octave-logo.png" alt="Octave logo">
+</div>
+  </body>
+</html>
