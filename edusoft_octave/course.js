@@ -5,7 +5,6 @@ function openNav() {
     $("#closebar").removeClass("d-none");
     $("#openbar").addClass("d-none");
 
-
 }
 
 function closeNav() {
