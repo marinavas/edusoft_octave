@@ -9,7 +9,7 @@ body {
     color: white;
   }
 
-ul {
+.sidebar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -18,19 +18,19 @@ ul {
     overflow: auto;
 }
 
-li a {
+.sidebar li a {
     display: block;
     color: #000;
     padding: 8px 16px;
     text-decoration: none;
 }
 
-li a.active {
+.sidebar li a.active {
     background-color: #ed9326;
     color: white;
 }
 
-li a:hover:not(.active) {
+.sidebar li a:hover:not(.active) {
     background-color: #8de3fc;
     color: black;
 }
@@ -107,3 +107,16 @@ li a:hover:not(.active) {
       bottom: 0px;
       padding: 20px;
   }
+
+pre{
+  padding:20px;
+  border:solid;
+  border-color: hsl(0, 1%, 84%); 
+}
+
+code { 
+    
+    color:black;
+    font-family: 'Fantasque Sans Mono', 'Courier New', Cousine, Courier, monospace;
+    white-space: pre-wrap;
+}
