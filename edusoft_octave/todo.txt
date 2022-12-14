@@ -1,0 +1,9 @@
+kompleksni brojevi gde postaviti
+
+"array manipulation" prevod?
+
+rand min max mean sum prod length prebaciti u problemi statistike? [x i] = min(a) i indeks najmanjeg
+
+napraviti sadrzaj sa podsekcijama
+
+reasavanje jednacina -> linearna algebra det eig
