@@ -7,3 +7,5 @@ rand min max mean sum prod length prebaciti u problemi statistike? [x i] = min(a
 napraviti sadrzaj sa podsekcijama
 
 reasavanje jednacina -> linearna algebra det eig
+
+"funkcije" naglasiti nekako da se odnosi na ugradjene funkcije, posebno negde nesto reci o pisanju funkcija i skripti mozda
