@@ -224,6 +224,156 @@ ans =
 ans =
 
     0  0</code></pre>
+
+<h3>Цртање графика</h3>
+
+<p>У програмском језику Octave подаци се могу визуелно приказати користећи уграђену функцију <code>plot</code>. За први аргумент наводимо растући низ тачака на x-оси,
+а други низ вредности функције у одговарајућим тачкама </p>
+
+<pre><code >>> c = [1 3 3 1]; x = [-20:5:20]; y = polyval(c,x); plot(x,y)
+    <img src = "figure1.svg" alt="grafik kubnog polinoma" width = "50%" class = "float-left"/> </code></pre>
+
+
+<p>Подразумевано тачке су на графику повезане правим линијама. Повећањем броја тачака график постаје детаљнији. 
+Својства графика можемо мењати навођењем аргумената функције <code>plot</code>- назив својства и жељене вредности што можемо видети у табели:
+<table class = "table">
+    <thead>
+    <tr>
+        <th><code>plot</code></th>
+        <th>својство</th>
+        <th>вредности</th>
+    </tr>
+    </thead>
+    <tr>
+        <td></td>
+        <td><code>linewidth</code></td>
+        <td>Број који представља жењену дебљину линије</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><code>linestyle</code></td>
+        <td>Стил линије може бити <code>"-"</code>, <code>"--"</code>, <code>":"</code>, <code>"-."</code> или <code>"none"</code> и представља редом 
+        пуну линију, испрекидану, тачкасту, црта-тачка-црта и неповезане тачке</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><code>markersize</code></td>
+        <td>Величина тачака на графику</td>
+      
+    </tr>
+    <tr>
+        <td></td>
+        <td><code>color</code></td>
+        <td>Боја графика задаје се називом или као низ од три броја који представљају интензитет црвене, зелене и плаве боје у тој боји на скали 0 до 1</td>
+    </tr>
+  </table>
+</p>
+<p>
+Још нека својства могу се подесити функцијом <code>set</code> која за аргументе има парове својство и вредност из табеле:
+
+<table class = "table">
+    <thead>
+    <tr>
+        <th><code>set</code></th>
+        <th>својство</th>
+        <th>вредности</th>
+    </tr>
+    </thead>
+    <tr>
+        <td></td>
+        <td><code>xlim, ylim</code></td>
+        <td>Границе графика на x-оси, односно на y-оси. Двочлани низ који садржи доњу и горњу границу интервала.</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><code>fontsize</code></td>
+        <td>Величина фонта ознака на осама.</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><code>xlabel, ylabel</code></td>
+        <td>Ознаке оса</td>
+      
+    </tr>
+    <tr>
+        <td></td>
+        <td><code>linewidth</code></td>
+        <td>Број који представља дебљину оквира графика</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><code>xticks, yticks</code></td>
+        <td>Монотони низ бројева који представља обележене тачке на оси.</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><code>title</code></td>
+        <td>Назив графика</td>
+    </tr>
+  </table>
+
+</p>
+<p>
+Наредбама <code>grid on</code> и <code>grid off</code> може се укључити и укључити координатна мрежа. Наредбама <code>hold on</code> и <code>hold off</code> може се
+укључити и искључити останак старог графика на слици приликом исцртавања новог, и на тај начин се може цртати више графика на истом простору. 
+Неке од наведених опција можемо видети на примеру:
+</p>
+
+<pre><code>>> c1 = [2 10 0 6]; c2 = [2 10  -10 6];
+>> x = [-5:0.1:2]; y1 = polyval(c1,x ); plot(x,y1 ,"color","red","linestyle","-.", "linewidth", 3); grid on; hold on;
+>> y2 = polyval(c2,x ); plot(x,y2 ,"color",[1 0.7 0],"linestyle",":", "linewidth", 5);
+>> set(gca, "ylabel", text("string", "f(x)", "fontsize", 25))
+>> set(gca, "xlabel", text("string", "x", "fontsize", 25))
+>> set(gca, "ylim", [0 90])
+>> set(gca, "ytick", [0:15:90])
+
+<img src = "figure2.svg" alt="primer dva grafika" width = "50%" class = "float-left"/>
+</code></pre>
+
+<h3>Вишедимензиони график</h3>
+
+<p>За дефинисање вишедимензионог домена функције корисна нам је уграђена функција <code>meshgrid</code>. На примеру видимо како можемо добити матрице 
+x и y координата чворова на мрежи димензије 4x3:</p>
+
+<pre><code>>> x = [1 2 3]; y = [1 2 3 4]; [X Y] = meshgrid(x,y)
+X =
+
+    1   2   3
+    1   2   3
+    1   2   3
+    1   2   3
+
+Y =
+
+    1   1   1
+    2   2   2
+    3   3   3
+    4   4   4</code></pre>
+
+<p>Постоји више начина исцртавање тродимензионих графика. Уколико желимо да нацртамо површ у простору користе се функције <code>surface</code> и <code>mesh</code> што ћемо показати на примеру функције <code>z(x,y) = x<sup>2</sup> - y<sup>2</sup></code>
+    на домену <code>[-2,2]x[-2,2]</code>:</p>
+<pre><code>x = [-2:0.1:2]; y = x;
+>> [X Y] = meshgrid(x,y);
+>> Z = X.^2 - Y.^2;
+>> mesh(X,Y,Z)
+<img src = "mesh.svg" alt="koriscenje funkcije mesh" width = "50%" />
+>> surface(X,Y,Z)
+<img src = "surface.svg" alt="koriscenje funkcije mesh" width = "50%"/>
+</code></pre>
+
+<p>Угао гледања ових површи можемо мењати коришћењем функције <code>view</code> задавањем азимута и висине тачке гледања у степенима</p>
+<img src = "view.gif" alt="ugao gledanja" width = "50%"/>
+<p>Приказ исте површи посматране из тачака <code>(20,20)</code> и <code>(-20,-20)</code> редом:</p>
+<pre><code><img src = "viewplus.svg" alt="koriscenje funkcije view +" width = "50%" class = "float-left"/>
+<img src = "viewminus.svg" alt="koriscenje funkcije view -" width = "50%"/></code></pre>
+
+<p>Параметарски задате криве у простору цртамо функцијом <code>plot3</code> као у примеру:</p>
+
+<pre><code>t = 0:0.1:10*pi;
+r = linspace (0, 1, numel (t));
+z = linspace (0, 1, numel (t));
+plot3 (r.*sin(t), r.*cos(t), z)
+<img src = "plot3.svg" alt="kriva u prostoru" width = "50%" class = "flaot-left"/></code></pre>
 </div>
   </body>
 </html>
