@@ -266,9 +266,16 @@ ans =
         <td><code>color</code></td>
         <td>Боја графика задаје се називом или као низ од три броја који представљају интензитет црвене, зелене и плаве боје у тој боји на скали 0 до 1</td>
     </tr>
+    <tr>
+        <td></td>
+        <td><code>marker</code></td>
+        <td>Стил исцртавања познатих тачака на графику, што може бити директно задат карактер (<code>'+'</code>, <code>'o'</code>, <code>'*'</code>,
+        <code>'>'</code> ...), или назив облика (<code>'square'</code>, <code>'diamond'</code>, <code>'pentagram'</code>, <code>'hexagram'</code>) </td>
+    </tr>
   </table>
 </p>
 <p>
+
 Још нека својства могу се подесити функцијом <code>set</code> која за аргументе има парове својство и вредност из табеле:
 
 <table class = "table">
@@ -321,7 +328,7 @@ ans =
 
 <pre><code>>> c1 = [2 10 0 6]; c2 = [2 10  -10 6];
 >> x = [-5:0.1:2]; y1 = polyval(c1,x ); plot(x,y1 ,"color","red","linestyle","-.", "linewidth", 3); grid on; hold on;
->> y2 = polyval(c2,x ); plot(x,y2 ,"color",[1 0.7 0],"linestyle",":", "linewidth", 5);
+>> y2 = polyval(c2,x ); plot(x,y2 ,"color",[1 0.7 0],"diamond");
 >> set(gca, "ylabel", text("string", "f(x)", "fontsize", 25))
 >> set(gca, "xlabel", text("string", "x", "fontsize", 25))
 >> set(gca, "ylim", [0 90])
