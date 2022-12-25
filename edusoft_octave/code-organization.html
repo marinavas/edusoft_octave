@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Prva strana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="course.js"></script>
+    <link rel="stylesheet" href="course.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+ 
+  <div class="header">
+    <div class = "float-left"> <button class="openbtn" id = "openbar" onclick="openNav()"><i class="fa fa-bars fa-solid"> Отвори садржај</i></button></div>
+    
+  </div>
+
+  <div id="sidebar" class="sidebar d-none">
+    
+    
+    <ul>
+      <li><button class="closebtn d-none"  id="closebar" onclick="closeNav()"><i class="fa fa-bars fa-solid"> Затвори садржај</i></button></li>
+      <li><a href="./intro.html">Увод</a></li>
+      <li><a href="./vectors.html">Променљиве и операције</a></li>
+      <li><a href="./functions.html">Функције и визуализација</a></li>
+      <li><a class="active" href="./code-organization.html">Организација кода</a></li>
+      <li><a href="./equations.html">Решавање једначина</a></li>
+      <li><a href="./interpolation.html">Интерполација</a></li>
+      <li><a href="./differential.html">Диференцијални рачун</a></li>
+      <li><a href="./statistics.html">Проблеми статистике</a></li>
+    </ul>
+  </div>
+  
+
+<div id = "main">
+
+<h3>Писање скрипти</h3>
+
+<p>Један програм у програмском језика Octave чини низ наредби које се извршавају линију по линију, наредбу по наредбу. Произвољан низ наредби 
+  можемо сачувати у један фајл типа <code>.m</code>, који касније можемо извршити као у примеру:
+</p>
+
+<code>[prva_skripta.m]</code>
+<pre class="editor"><code >A = rand(3,5)
+min(min(A))</code></pre>
+
+<pre><code >>> prva_skripta
+A =
+
+    0.6852171   0.4709342   0.8744946   0.1088955   0.9055057
+    0.6767950   0.6808867   0.0452116   0.2961173   0.0058840
+    0.9171189   0.1731894   0.3121850   0.8828274   0.0948282
+
+ans =  0.0058840</code></pre>
+
+<h3>Улазни и излазни подаци</h3>
+
+<p>Интеракција са корисником могућа је коришћењем функција <code>input</code> и <code>disp</code>. Општи формат коришћења функције <code>input</code>
+је <code>a = input("порука","s")</code>, где је "порука" текст који описује кориснику шта треба да унесе, а <code>"s"</code> опциони аргумент 
+који назначава да је променљива <code>a</code> текстуалног типа (string).</p>
+
+<pre><code >>> s = input("Unesite tekst: ", "s")
+Unesite tekst: Zdravo!
+s = Zdravo!</code></pre>
+
+<p>На сличан начин можемо дефинисати вредност променљиве другог типа. Од корисника се очекује да уноси податке у истом формату у којем би 
+експлицитно задао вредност променљиве тог типа:</p>
+
+<pre><code >>> A = input("Unesite elemente matrice: ")
+Unesite elemente matrice: [1 2;3 4]
+A =
+
+    1   2
+    3   4
+</code></pre>
+
+<p>Функција <code>disp</code> за испис података може имати само један аргумент. Можемо исписати неку поруку или вредност неке променљиве:</p>
+
+<pre><code >>> disp("Elementi matrice A su:"); disp(A)
+Elementi matrice A su:
+    1   2
+    3   4</code></pre>
+
+<p>Форматиран испис се може вршити коришћењем функције <code>printf</code> слично као у другим програмским језицима:</p>
+<code>[minmax.m]</code>
+<pre class = "editor"><code>a = input(<span class = "string">"Unesite niz: "</span>);
+printf(<span class = "string">"Minimalni element niza a je: %.2f, a maksimalan %.2f \n"</span>, min(a), max(a));</code></pre>
+
+<pre><code >>> minmax
+Unesite niz: [123/4 -100.7777 200/7 50.1234]
+Minimalni element niza a je: -100.78, a maksimalan 50.12</code></pre>
+
+<h3>Коментари</h3>
+
+<p>Када пишемо дужу скрипту понекад је корисно оставити поруке које ближе описују рад програма. У програмском језику Octave коментар може почети 
+  симболом <code>#</code> или <code>%</code>.
+</p>
+
+<pre class="editor"><code >A = rand(4,4)*9+1; <span class = "comment">% Uniformna raspodela na intervalu (1,10)</span>
+
+<span class = "comment"># Racunamo minimum elemenata matrice</span>
+minA = min(min(A));
+
+<span class = "comment"># Ispisujemo minimalni element zaokruzen na dve decimale</span>
+printf(<span class = "string">"Minimalni element je: %.2f\n"</span>, minA)</code></pre>
+
+<h3>Контрола тока</h3>
+
+<p>Гранање у програмском језику Octave слично је као у другим програмским језицима. Показаћемо на примеру програма који проверава да ли је година преступна користећи функцију <code>rem</code>
+која рачуна остатак при дељењу задатих бројева:</p>
+
+<pre class="editor"><code>g = input(<span class="string">"Unesite godinu: "</span>);
+<span class ="keyword">if</span> (rem(g,400) == 0)
+  disp(<span class="string">"Godina je prestupna jer je deljiva sa 400."</span>);
+<span class ="keyword">elseif</span> (rem(g,4) == 0 & rem(g,100) != 0)
+  disp(<span class="string">"Godina je prestupna jer je deljiva sa 4 a nije sa 100."</span>);
+<span class ="keyword">else</span>
+  disp(<span class="string">"Godina nije prestupna."</span>);
+<span class ="keyword">endif</span></code></pre>
+
+<p>Наредбу <code>switch</code> користимо када више пута проверавамо вредност истог израза:</p>
+
+<pre class="editor"><code >n = input(<span class="string">"Unesite ceo broj: "</span>);
+<span class ="keyword">switch</span>(rem(n,4))
+<span class ="keyword">case</span> 0
+  disp(<span class="string">"Broj je deljiv sa 4."</span>);
+<span class ="keyword">case</span> 2
+  disp(<span class="string">"Broj je paran, ali nije deljiv sa 4."</span>);
+<span class ="keyword">otherwise</span>
+  disp(<span class="string">"Broj je neparan."</span>);
+<span class ="keyword">endswitch</span></code></pre>
+
+<p>Слично другим језицима користимо петље типа <code>for</code>, <code>while</code> и <code>do-until</code>.
+  Инкременталне и декременталне операторе користимо као у програмском језику C, што ћемо видети на примеру одрељивања збира делилаца броја коришћењем 
+  различитих врсти петље:
+</p>
+
+<pre class="editor"><code >n = input(<span class="string">"Unesite broj: "</span>);  
+s = 0;
+<span class ="keyword">for</span> d = 1:1:n-1
+  <span class ="keyword">if</span> rem(n,d) == 0
+    s += d;
+  <span class ="keyword">endif</span>
+<span class ="keyword">endfor</span>
+disp(s);</code></pre>
+
+<pre class="editor"><code >n = input(<span class="string">"Unesite broj: "</span>);  
+d = 1;
+s = 0;
+<span class ="keyword">while</span> d < n
+  <span class ="keyword">if</span> rem(n,d) == 0
+    s += d;
+  <span class ="keyword">endif</span>
+  d++;
+<span class ="keyword">endwhile</span>
+disp(s);</code></pre>
+
+<pre class="editor"><code >n = input(<span class="string">"Unesite broj: "</span>);  
+d = 1;
+s = 0;
+<span class ="keyword">do</span> 
+  <span class ="keyword">if</span> rem(n,d) == 0
+    s += d;
+  <span class ="keyword">endif</span>
+  d++;
+<span class ="keyword">until</span> d >= n
+disp(s);</code></pre>
+
+<h3>Писање функција</h3>
+
+<p>Функција у програмском језику Octave може имати више улазних и више излазних променљивих. Дефинише се у посебној скрипти истог назива као у примеру:
+</p>
+<code>[minmax.m]</code>
+<pre class = "editor"><code><span class ="keyword">function</span> [min_xy, max_xy] = minmax(x,y)
+  min_xy = min(x,y);
+  max_xy = max(x,y);
+<span class ="keyword">endfunction</span></code></pre>
+
+<pre><code >>> [a,b] = minmax(4,3)
+a =  3
+b =  4</code></pre>
+
+<p>Једноставније функције се могу дефинисати у једној линији коришћењем функције <code>inline</code>: </p>
+
+<pre><code >>> f = inline("x + exp(-y)")
+f = f(x, y) = x + exp(-y)
+>> f(0,-1)
+ans =  2.7183</code></pre>
+
+</div>
+</body>
+</html>

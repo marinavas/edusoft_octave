@@ -121,3 +121,18 @@ code {
     font-family: 'Fantasque Sans Mono', 'Courier New', Cousine, Courier, monospace;
     white-space: pre-wrap;
 }
+code .string {
+  color: #ed9326 !important;
+} 
+code .comment {
+  color: rgb(40, 170, 40) !important; 
+}
+code .keyword{
+  color: rgb(21, 72, 255) !important;
+  font-weight: bold;
+}
+
+.editor{
+  border-color: #c9e1e8 !important;
+}
+

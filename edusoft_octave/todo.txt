@@ -9,3 +9,5 @@ napraviti sadrzaj sa podsekcijama
 reasavanje jednacina -> linearna algebra det eig
 
 "funkcije" naglasiti nekako da se odnosi na ugradjene funkcije, posebno negde nesto reci o pisanju funkcija i skripti mozda
+
+lepse nazvati html-ove
