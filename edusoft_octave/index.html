@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Увод у Octave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="course.js"></script>
+  <link rel="stylesheet" href="course.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="float-left"> <button class="openbtn" id="openbar" onclick="openNav()"><i class="fa fa-bars fa-solid">
+          Отвори садржај</i></button></div>
+
+  </div>
+
+  <div id="sidebar" class="sidebar d-none">
+
+
+    <ul>
+      <li><button class="closebtn d-none" id="closebar" onclick="closeNav()"><i class="fa fa-bars fa-solid"> Затвори
+            садржај</i></button></li>
+      <li><a class="active" href="./index.html">Увод</a></li>
+      <li><a href="./variables.html">Променљиве и операције</a></li>
+      <li><a href="./functions.html">Функције и визуализација</a></li>
+      <li><a href="./code-organization.html">Организација кода</a></li>
+      <li><a href="./equations.html">Решавање једначина</a></li>
+      <li><a href="./interpolation.html">Интерполација</a></li>
+      <li><a href="./differential-equations.html">Диференцијални рачун</a></li>
+      <li><a href="./statistics.html">Проблеми статистике</a></li>
+    </ul>
+  </div>
+
+
+  <div id="main">
+    <h3>Шта је Octave?</h3>
+
+    <p>GNU Octave је виши програмски језик, првенствено намењен нумеричким
+      израчунавањима и изради графика.
+      Он обезбеђује
+      погодан интерфејс командне линије за решавање линеарних и нелинеарних проблема нумерички, као и за
+      извођење других нумеричких израчунавања. Синтакса је компатибилна са Matlab-om, па се често
+      користи као његова open source алтернатива.
+
+    </p>
+    <p>Octave има алате за решавање линеарних проблема,
+      проналажење корена нелинеарних једначина, интеграла функција и манипулисање полиномима.
+      Посебно је погодан за израчунавања са матрицама као што су решавање система линеарних једначина,
+      налажење сопствених вредности и сопствених вектора.
+    </p>
+
+    <h3>Инсталација</h3>
+    <h5>Linux</h5>
+    <p>
+      За инсталацију GNU Octave у Linux-u покрените следеће команде:
+    <pre><code>sudo apt-get update</code></pre>
+    <pre><code>sudo apt-get install octave</code></pre>
+    Када сте успешно инсталирали Octave на Linux систем, покрените га следећом командом:
+    <pre><code>octave</code></pre>
+    </p>
+    <h5>Windows</h5>
+    <p>
+      На сајту <a target="_blank" rel="noopener noreferrer nofollow"
+        href="https://www.gnu.org/software/octave/">octave.org</a> кликните на дугме Download.
+    </p>
+    <p>
+      <img src="instalacija-Windows.png" alt="instalacija-Windows" style="width: 45%">
+    </p>
+    <p>
+      Затим, изаберите одговарајући оперативни систем (у овом случају MS Windows) и преузмите извршиви фајл.
+    </p>
+    <p>
+      <img src="instalacija-Windows-2.png" alt="instalacija-Windows-2" style="width: 45%">
+
+      <img src="instalacija-Windows-3.png" alt="instalacija-Windows-3" style="width: 45%; margin-left: 5%">
+    </p>
+    <p>
+      Покрените преузети извршиви фајл, и након пар једноставних подешавања 
+      (можете само прескакати кликом на Next) кренуће инсталација.
+    </p>
+    <p>
+      <img src="instalacija-Windows-4.png" alt="instalacija-Windows-4" style="width: 45%">
+    </p>
+    <p>
+      Инсталација може потрајати пар минута. Када је готова, софтвер се аутоматски отвара.
+      У овом тренутку, можете видети интерфејс GNU Octave.
+    </p>
+    <p>
+      <img src="instalacija-Windows-5.png" alt="instalacija-Windows-5" style="width: 45%">
+    </p>
+    <h3>Технички детаљи</h3>
+
+    <ul>
+      <li>
+      Octave је написан у C++ користећи C++ стандардну библиотеку.
+      </li>
+    <li>
+      Octave користи интерпретаторе за извршавање свог скриптног језика.
+    </li>
+    <li> Octave је
+      структуирани програмски језик (сличан C-у) и подржава многе заједничке C стандардне библиотеке,
+      као и неке UNIX системе позива и функције.
+    </li>
+    <li>
+      Синтакса је базирана на матрицама и обезбеђује различите функције за операције над матрицама.
+    </li>
+    <li>
+      Омогућено је објектно-оријентисано порграмирање.
+    </li>
+    </ul>
+
+    <h3>Ко користи Octave?</h3>
+
+    <p>
+      Octave и Matlab се широко користе од стране инжењера и научника, како у индустрији тако и у
+      науци за извођење нумеричких прорачуна и за развој и тестирање математичких алгоритама. На пример, NASA
+      га користи за развој система за слетање свемирских летелица,
+      Jaguar Racing га користи за приказ и анализу података пренетих из њихових аутомобила Формуле 1.
+      Универзитет Шефилд користи га за развој софтвера за препознавање ћелија рака.
+
+    </p>
+
+
+
+    <h3>Шта није Octave?</h3>
+
+    <p>
+      Octave је дизајниран да решава математичке проблеме нумерички, односно рачунањем
+      вредности у меморији рачунара. То значи да не може увек дати тачно решење
+      проблема, и не треба га мешати са програмима као што су Mathematica или
+      Maple, који алгебарском манипулацијом дају тачна решења. Ово није
+      нешто што га чини бољим или лошијим од наведених програма - користе се за различите задатке.
+    </p>
+
+
+    <h3>Зашто Octave а не C++?</h3>
+    <p>
+      C++ и други стандардни виши програмски језици су обично дизајнирани за писање софтвера опште намене.
+      Међутим решавање математичких проблема у C++ није удобно за програмирање и додатно је мање ефикасно.
+      Octave је специјално дизајниран и оптимизован да реши овакве проблеме,
+      изврши прорачуне и прикаже резултате. </p>
+
+
+  </div>
+</body>
+
+</html>
