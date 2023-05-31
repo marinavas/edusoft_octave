@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+}
+  
+.header {
+    height: 40px;
+    text-align: center;
+    background: #3bbce3;
+    color: white;
+  }
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #d7f2fa;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.sidebar li a.active {
+    background-color: #ed9326;
+    color: white;
+}
+
+.sidebar li a:hover:not(.active) {
+    background-color: #8de3fc;
+    color: black;
+}
+
+.row {
+    height: 100%;
+    display: table-row;
+}
+
+.row .no-float {
+  display: table-cell;
+  float: none;
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #3bbce3;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    cursor: pointer;
+    color: white;
+    background-color: #3bbce3;
+    width:100%;
+    height: 40px;
+    padding: 10px 10px;
+    border: none;
+  }
+  
+  .openbtn {
+    cursor: pointer;
+    color: #3bbce3;
+    height: 40px;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .openbtn:hover {
+    color: #ed9326;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 30px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+    img {width: 100%;}
+  }
+
+  .logo {
+      position:absolute;
+      right:0px;
+      bottom: 0px;
+      padding: 20px;
+  }
+
+pre{
+  padding:20px;
+  border:solid;
+  border-color: hsl(0, 1%, 84%); 
+}
+
+code { 
+    
+    color:black;
+    font-family: 'Fantasque Sans Mono', 'Courier New', Cousine, Courier, monospace;
+    white-space: pre-wrap;
+}
+code .string {
+  color: #ed9326 !important;
+} 
+code .comment {
+  color: rgb(40, 170, 40) !important; 
+}
+code .keyword{
+  color: rgb(21, 72, 255) !important;
+  font-weight: bold;
+}
+
+.editor{
+  border-color: #c9e1e8 !important;
+}
+
