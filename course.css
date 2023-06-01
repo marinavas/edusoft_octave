@@ -78,6 +78,16 @@ body {
     padding: 10px 10px;
     border: none;
   }
+
+  .sidebar .footer {
+    height:40px;
+    width:100%;
+    position:absolute;
+    bottom:40px;
+    padding: 10px 10px;
+    color: #3bbce3;
+    }
+
   
   .openbtn {
     cursor: pointer;
@@ -97,7 +107,7 @@ body {
   }
   
   @media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
+    .sidebar {padding-top: 15px; }
     .sidebar a {font-size: 18px;}
     img {width: 100%;}
   }
